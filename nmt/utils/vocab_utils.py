@@ -38,9 +38,10 @@ def load_vocab(vocab_file):
   vocab = []
   with codecs.getreader("utf-8")(tf.gfile.GFile(vocab_file, "rb")) as f:
     vocab_size = 0
-    for word in f:
+    for line in f:
       vocab_size += 1
-      vocab.append(word.strip())
+      words = line.split()
+      vocab.append(words[0].strip())
   return vocab, vocab_size
 
 
