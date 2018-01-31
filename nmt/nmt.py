@@ -513,6 +513,8 @@ def ensure_compatible_hparams(hparams, default_hparams, hparams_path):
                         (key, str(getattr(hparams, key)),
                          str(default_config[key])))
         setattr(hparams, key, default_config[key])
+  setattr(hparams, 'sampling_temperature', default_config['sampling_temperature']) 
+  setattr(hparams, 'beam_width', default_config['beam_width']) 
   return hparams
 
 
